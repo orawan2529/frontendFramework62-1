@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           if (data.status) {
             Swal.fire({
               type: "success",
-              title: "สาเร็จ",
+              title: "สำเร็จ",
               text: "Login success!"
             });
             this.router.navigate(["/home"]);
@@ -56,7 +56,11 @@ export class LoginComponent implements OnInit {
           this.submitting = false;
         });
     } else {
-      alert("Invalid!"); // show mesage กรณีกรอกข้อมูลไม่ครบใน input
+      Swal.fire({
+        type: "error",
+        title: "แจ้งเตือน",
+        text: "Invalid!"
+      });
       this.submitting = false;
     }
   }
